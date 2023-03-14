@@ -17,26 +17,29 @@ import copy
 if __name__ == '__main__':
     N = int(input())
     arr = []
-    print_list = []
+    def get_list_ops(cmd):
+        cmd, *l = cmd.split()
+        l = list(map(int,l))
+        if cmd=="insert":
+            arr.insert(int(l[0]),int(l[1]))
+        elif cmd=="print":
+            result.append(copy.deepcopy(arr))
+        elif cmd=="remove":
+            arr.remove(int(l[0]))
+        elif cmd=="append":
+            arr.append(int(l[0]))
+        elif cmd=="sort":
+            arr.sort()
+        elif cmd=="pop":
+            arr.pop()
+        elif cmd=="reverse":
+            arr.reverse()
+        else:
+            print("invalid command")
+    result = []
     for _ in range(N):
         cmd = input()
-        cmd = cmd.split()
-        if cmd[0]=="insert":
-            arr.insert(int(cmd[1]),int(cmd[2]))
-        if cmd[0]=="print":
-            print_list.append(copy.deepcopy(arr))
-        if cmd[0]=="remove":
-            arr.remove(int(cmd[1]))
-        if cmd[0]=="append":
-            arr.append(int(cmd[1]))
-        if cmd[0]=="sort":
-            arr.sort()
-        if cmd[0]=="pop":
-            arr.pop()
-        if cmd[0]=="reverse":
-            arr.reverse()
-    for i in print_list:
+        get_list_ops(cmd)
+    for i in result:
         print(i)
-
-
 
