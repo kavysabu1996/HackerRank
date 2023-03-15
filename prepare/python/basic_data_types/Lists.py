@@ -21,25 +21,22 @@ if __name__ == '__main__':
         cmd, *l = cmd.split()
         l = list(map(int,l))
         if cmd=="insert":
-            arr.insert(int(l[0]),int(l[1]))
+            arr.insert(l[0],l[1])
         elif cmd=="print":
             result.append(copy.deepcopy(arr))
         elif cmd=="remove":
-            arr.remove(int(l[0]))
+            arr.remove(l[0])
         elif cmd=="append":
-            arr.append(int(l[0]))
+            arr.append(l[0])
         elif cmd=="sort":
             arr.sort()
         elif cmd=="pop":
             arr.pop()
         elif cmd=="reverse":
             arr.reverse()
-        else:
-            print("invalid command")
     result = []
     for _ in range(N):
         cmd = input()
         get_list_ops(cmd)
     for i in result:
         print(i)
-
